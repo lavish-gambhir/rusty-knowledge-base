@@ -1,10 +1,11 @@
+# Memory Management
 
 - The notion of destructor is provided through the `Drop` trait. The destructor is called when the resource goes out of scope. This trait is not required to be implmenented for every type, only implement it for your type if you require its own destructor logic.
 - Given vars are in charge of freeing their own resources, **resources can only have one owner**. This prevents resources from being freed more than once.  !! not all the variables own resources (eg. `references`). ==The transfer of ownership is knowns as a __move__.==
 - Mutability of data can be changed when ownership is transferred.
 - The compiler statically guarantees (via its borrow checker) that references _always_ point to valid objects, so, while the references to an object exists, the object cannot be dropped.
 - Mutable data can be mutably borrowed using `&mut T` -> _mutable/exclusive reference_ and gives read/write access to the borrower. `&T` borrows the data via an `immutable/shared reference`, and the borrower can read it but can't modify it.
->[!note] Data can be immutably borrowed any number of times, but while immutably borrowed, the original data can't be mutably borrowed. On the other hand, only __one exclusive ref/mutable borrow__ is allowed at a time. The original data can be borrowed again only _after_ the mutable reference has been used for the last time.
+> Data can be immutably borrowed any number of times, but while immutably borrowed, the original data can't be mutably borrowed. On the other hand, only __one exclusive ref/mutable borrow__ is allowed at a time. The original data can be borrowed again only _after_ the mutable reference has been used for the last time.
 
 - A `ref` borrow on the left. size of an assignment = an `&` borrow on the right side:
 ```rust
