@@ -1,2 +1,2 @@
-# rusty-knowledge-base
+# rusty-nuggets
 Contains notes about different Rust topics.
