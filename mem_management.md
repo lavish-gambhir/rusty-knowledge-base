@@ -7,7 +7,7 @@
 - Mutable data can be mutably borrowed using `&mut T` -> _mutable/exclusive reference_ and gives read/write access to the borrower. `&T` borrows the data via an `immutable/shared reference`, and the borrower can read it but can't modify it.
 > Data can be immutably borrowed any number of times, but while immutably borrowed, the original data can't be mutably borrowed. On the other hand, only __one exclusive ref/mutable borrow__ is allowed at a time. The original data can be borrowed again only _after_ the mutable reference has been used for the last time.
 
-- A `ref` borrow on the left. size of an assignment = an `&` borrow on the right side:
+- A `ref` borrow on the left hand side of an assignment = an `&` borrow on the right side:
 ```rust
 let ref x = c; // let x = &c;
 ```
